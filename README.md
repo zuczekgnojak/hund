@@ -4,8 +4,42 @@ Create and run project-related scripts with ease. This tool is meant to be a sim
 ## Example
 
 ![Example Hundfile](static/hundfile.png "hundfile")
+<details>
 
-Run:
+<summary>Raw file</summary>
+
+```
+// This is an example Hundfile
+
+// This global directive will set execution shell
+// By default hund uses /bin/sh
+@shell(/bin/bash -x)
+
+create-file: allow-all|a=flag
+    touch my-file.txt
+    [ @{{allow-all}} ] && chmod 777 my-file.txt
+
+write-to-file(filename, content+):
+    echo "@{{content}}" >> @{{filename}}
+
+show-content(filename): limit|l=value
+    cmd=(cat)
+    if [ @{{limit}} ]; then cmd=(head -c @{{ limit }}); fi
+    ${cmd[@]} @{{ filename }}
+
+show-platform:
+    @(( write-to-file script.py import sys; print(sys.platform) ))
+    python3 script.py
+    rm script.py
+
+rate-platform:
+    platform=$(@[[ show-platform ]])
+    if [ $platform == linux ]; then echo "fantastic"; else echo ":<"; fi
+```
+
+</details>
+
+### Run:
 ```
 $ hund create-file -a
 + touch my-file.txt
