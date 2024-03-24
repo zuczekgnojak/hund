@@ -3,10 +3,9 @@ Create and run project-related scripts with ease. This tool is meant to be a sim
 
 ## Example
 
-![Example Hundfile](static/hundfile.png "hundfile")
 <details>
 
-<summary>Raw file</summary>
+<summary>Hundfile</summary>
 
 ```
 // This is an example Hundfile
@@ -39,44 +38,37 @@ rate-platform:
 
 </details>
 
+![Example Hundfile](static/hundfile.png "hundfile")
+
+
 ### Run:
+
+<details>
+<summary>Commands</summary>
+
+```
+hund create-file -a
+```
+```
+hund write-to-file some-file.txt 
+```
+```
+cat some-file.txt
+```
+```
+hund show-content -l 5 some-file.txt
+```
+```
+hund show-platform
+```
+```
+hund rate-platform
+```
+
+</details>
 
 ![Commands](output.gif)
 
-```
-$ hund create-file -a
-+ touch my-file.txt
-+ '[' x ']'
-+ chmod 777 my-file.txt
-
-$ hund write-to-file some-file.txt this is content
-+ echo 'this is content'
-
-$ cat some-file.txt
-this is content
-
-$ hund show-content -l 5 some-file.txt
-+ cmd=(cat)
-+ '[' 5 ']'
-+ cmd=(head -c 5)
-+ head -c 5 some-file.txt
-this 
-
-$ hund show-platform
-+ echo 'import sys; print(sys.platform)'
-+ python3 script.py
-linux
-+ rm script.py
-
-$ hund rate-platform
-++ echo 'import sys; print(sys.platform)'
-++ python3 script.py
-++ rm script.py
-+ platform=linux
-+ '[' linux == linux ']'
-+ echo fantastic
-fantastic
-```
 
 ## Target Inputs
 ### Arguments
