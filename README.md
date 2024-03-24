@@ -40,6 +40,9 @@ rate-platform:
 </details>
 
 ### Run:
+
+![Commands](output.gif)
+
 ```
 $ hund create-file -a
 + touch my-file.txt
