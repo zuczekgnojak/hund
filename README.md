@@ -9,6 +9,7 @@
 </div>
 
 ## Example
+###### Terminal color palette can be found [here](https://ethanschoonover.com/solarized/)
 
 <details>
 
