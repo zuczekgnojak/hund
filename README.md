@@ -21,10 +21,13 @@ create-file: allow-all|a=flag
 write-to-file(filename, content+):
     echo "@{{content}}" >> @{{filename}}
 
-show-content(filename): limit|l=value
-    cmd=(cat)
-    if [ @{{limit}} ]; then cmd=(head -c @{{ limit }}); fi
-    ${cmd[@]} @{{ filename }}
+count-chars(filename): charset|c=value
+    if [ @{{ charset }} ]; then
+        charset="[@{{ charset }}]"
+    else
+        charset="."
+    fi
+    grep -o ${charset} @{{filename}} | grep -c .
 
 show-platform:
     @(( write-to-file script.py import sys; print(sys.platform) ))
@@ -56,7 +59,7 @@ hund write-to-file some-file.txt
 cat some-file.txt
 ```
 ```
-hund show-content -l 5 some-file.txt
+hund count-chars -c aoeiuy some-file.txt
 ```
 ```
 hund show-platform
