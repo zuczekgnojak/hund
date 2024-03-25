@@ -91,6 +91,9 @@ hund rate-platform
 
 ## Target Inputs
 ### Arguments
+
+![arguments](static/arguments-example.png)
+
 Arguments have to be defined in the paranthesis right after the target name and before the colon. When running a target, they should appear after any options you want to pass. There are 4 types of arguments: "single", "any", "at least one", "optional". Three of them ("any", "at least one" and "optional") can appear only on the last place of arguments list.
 
 #### single
@@ -157,6 +160,9 @@ $ hund my-target v1 v2 v3
 ```
 
 ### Options
+
+![options](static/options-example.png)
+
 Options have to be defined after the colon in target definition. When calling a target, options have to appear before any arguments you want to pass to it. When declering an option you can choose if you want to supply the single-char alias. There are two types of options: flags and values.
 
 #### flags
@@ -201,6 +207,9 @@ foo=bazf bar=bazb
 ## Dynamic Content
 
 ### Variables
+
+![variables](static/variable-example.png)
+
 Variables are defined by specifying arguments or options in target declaration. They can be used in script with following syntax `@{{ <varname> }}`.
 
 ```
@@ -212,6 +221,9 @@ argument=foo option=bar
 ```
 
 ### Calls
+
+![calls](static/call-example.png)
+
 You can use a script defined in another target by calling it with following syntax `@(( <targetname> ))`. Passing options and arguments works the same as when calling that target directly via `hund` invocation.
 
 This type of target invocation has a limitation. It need to be placed on it's own line. Called script is placed without any additional transformation.
@@ -230,6 +242,9 @@ echo argument=foo option=bar
 ```
 
 ### Embeds
+
+![embeds](static/embed-example.png)
+
 This one is similar to `Calls`. You can call another target with following syntax `@[[ <targetname>
 ]]`. Called script is put as single line exactly in place of `@[[ <targetname> ]]`. All newlines are replaced by character (or string) defined with `@embedSep` global directive. By default, the seperator is set to ';'.
 
