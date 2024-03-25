@@ -1,8 +1,12 @@
-<p align="center"><img src="static/dogo.png"></p>
-<p align="center" style="font-weight: bolder; font-size: 40px;"> hund </p>
+<div align="center">
+<img src="static/dogo.png">
+
+<h1> hund </h1>
 
 
-<p align="center" style="font-weight: bolder; font-size: 18px;">Create and run project-related scripts with ease. Hund is a task-runner meant to be a simple replacement for tools like <a href="https://www.gnu.org/software/make/">Make</a> or <a src="https://taskfile.dev/">Task</a>.</p>
+<h3>Create and run project-related scripts with ease. Hund is a task-runner meant to be a simple replacement for tools like <a href="https://www.gnu.org/software/make/">Make</a> or <a src="https://taskfile.dev/">Task</a>.</h3>
+
+</div>
 
 ## Example
 
