@@ -1,5 +1,8 @@
-# hund
-Create and run project-related scripts with ease. This tool is meant to be a simple replacement for tools like [Make](https://www.gnu.org/software/make/) or [Task](https://taskfile.dev/).
+<p align="center"><img src="static/dogo.png"></p>
+<p align="center" style="font-weight: bolder; font-size: 40px;"> hund </p>
+
+
+<p align="center" style="font-weight: bolder; font-size: 18px;">Create and run project-related scripts with ease. Hund is a task-runner meant to be a simple replacement for tools like <a href="https://www.gnu.org/software/make/">Make</a> or <a src="https://taskfile.dev/">Task</a>.</p>
 
 ## Example
 
