@@ -4,7 +4,7 @@
 <h1> hund </h1>
 
 
-<h3>Create and run project-related scripts with ease. Hund is a task-runner meant to be a simple replacement for tools like <a href="https://www.gnu.org/software/make/">Make</a> or <a src="https://taskfile.dev/">Task</a>.</h3>
+<h3>Create and run project-related scripts with ease. Hund is a task-runner meant to be a simple replacement for tools like <a href="https://www.gnu.org/software/make/">Make</a> or <a href="https://taskfile.dev/">Task</a>.</h3>
 
 </div>
 
