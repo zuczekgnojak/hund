@@ -243,7 +243,7 @@ echo argument=foo option=bar
 
 ### Embeds
 
-![embeds](static/embed-example.png)
+![embeds](static/embeds-example.png)
 
 This one is similar to `Calls`. You can call another target with following syntax `@[[ <targetname>
 ]]`. Called script is put as single line exactly in place of `@[[ <targetname> ]]`. All newlines are replaced by character (or string) defined with `@embedSep` global directive. By default, the seperator is set to ';'.
