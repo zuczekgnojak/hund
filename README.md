@@ -70,7 +70,15 @@ hund rate-platform
 
 </details>
 
-![Commands](output.gif)
+<details>
+
+<summary>Static</summary>
+
+![static-commands](static/run-static.png)
+
+</details>
+
+![Commands](static/run.gif)
 
 
 ## Target Inputs
