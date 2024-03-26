@@ -91,7 +91,7 @@ hund rate-platform
 
 ###### *Required invocation parameters*
 
-![arguments](static/arguments.png)
+![arguments](static/arguments1.png)
 
 Arguments have to be defined in the paranthesis right after the target name and before the colon. When running a target, they should appear after any options you want to pass. There are 4 types of arguments: "single", "any", "at least one", "optional". Three of them ("any", "at least one" and "optional") can appear only on the last place of arguments list.
 
@@ -209,7 +209,7 @@ foo=bazf bar=bazb
 
 ###### *Value substitution of arguments and options*
 
-![variables](static/variables.png)
+![variables](static/variables1.png)
 
 Variables are defined by specifying arguments or options in target declaration. They can be used in script with following syntax `@{{ <varname> }}`.
 
@@ -266,8 +266,7 @@ $ hund hello
 hello from linux
 ```
 
-## Global directives
-
+## Globals
 
 ![globals](static/globals.png)
 
