@@ -49,7 +49,7 @@ rate-platform:
 
 </details>
 
-![Example Hundfile](static/hundfile.png "hundfile")
+![Example Hundfile](static/hundfile1.png "hundfile")
 
 ### Invocation
 
