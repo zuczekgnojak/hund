@@ -266,9 +266,9 @@ $ hund hello
 hello from linux
 ```
 
-## Globals
+## Directives
 
-![globals](static/globals.png)
+![globals](static/directives.png)
 
 ### `@shell`
 `@shell` sets the execution shell used by hund to run target scripts. It can point only to binary `@shell(/bin/bash)` or define additional options used when starting shell `@shell(/bin/bash -z -x) 
