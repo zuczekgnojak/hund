@@ -3,7 +3,6 @@
 
 <h1> hund </h1>
 
-
 <h3>Create and run project-related scripts with ease. Hund is a task-runner meant to be a simple replacement for tools like <a href="https://www.gnu.org/software/make/">Make</a> or <a href="https://taskfile.dev/">Task</a>.</h3>
 
 </div>
@@ -11,9 +10,10 @@
 ## Example
 ###### Terminal color palette can be found [here](https://ethanschoonover.com/solarized/)
 
-<details>
+### Hundfile
 
-<summary>Hundfile</summary>
+<details>
+<summary>copy</summary>
 
 ```
 // This is an example Hundfile
@@ -51,11 +51,10 @@ rate-platform:
 
 ![Example Hundfile](static/hundfile.png "hundfile")
 
-
-### Run:
+### Invocation
 
 <details>
-<summary>Commands</summary>
+<summary>copy</summary>
 
 ```
 hund create-file -a
@@ -79,8 +78,7 @@ hund rate-platform
 </details>
 
 <details>
-
-<summary>Static</summary>
+<summary>static</summary>
 
 ![static-commands](static/run-static.png)
 
@@ -89,14 +87,15 @@ hund rate-platform
 ![Commands](static/run.gif)
 
 
-## Target Inputs
-### Arguments
+## Arguments
 
-![arguments](static/arguments-example.png)
+###### *Required invocation parameters*
+
+![arguments](static/arguments.png)
 
 Arguments have to be defined in the paranthesis right after the target name and before the colon. When running a target, they should appear after any options you want to pass. There are 4 types of arguments: "single", "any", "at least one", "optional". Three of them ("any", "at least one" and "optional") can appear only on the last place of arguments list.
 
-#### single
+### single
 These are the basic type of arguments, they are required when calling the target and expect single value.
 ```
 my-target(arg1, arg2):
@@ -110,7 +109,7 @@ $ hund my-target
 [ERROR][main.go:46] missing argment "arg1" (parser.go:275)
 ```
 
-#### any
+### any
 These arguments are defined by adding `*` to the argument name. They accept any count of values.
 ```
 my-target(arg1, arg2*):
@@ -127,7 +126,7 @@ v1
 
 ```
 
-#### at least one
+### at least one
 These arguments are defined by adding `+` to the argument name. They accept one or more values.
 ```
 my-target(arg1, arg2+):
@@ -143,7 +142,7 @@ kamil$ hund my-target v1
 [ERROR][main.go:46] missing argument "arg2" (parser.go:290)
 ```
 
-#### optional
+### optional
 These arguments are defined by adding `?` to the argument name. They accept at most one value.
 ```
 my-target(arg1, arg2?):
@@ -159,13 +158,15 @@ $ hund my-target v1 v2 v3
 [ERROR][main.go:46] too many arguments, "arg2" accepts at most 1 value (parser.go:286)
 ```
 
-### Options
+## Options
 
-![options](static/options-example.png)
+###### *Optional invocation parameters*
+
+![options](static/options.png)
 
 Options have to be defined after the colon in target definition. When calling a target, options have to appear before any arguments you want to pass to it. When declering an option you can choose if you want to supply the single-char alias. There are two types of options: flags and values.
 
-#### flags
+### flags
 This type of option are simple true/false switches. By default when flag option appears in target call, the corresponding variable is set to 'x'. The value that is assigned to flag option can be changed by using `@flagValue` global directive.
 
 ```
@@ -185,7 +186,7 @@ $ hund my-target --b-flag --a-flag
 a-flag=x b-flag=x
 ```
 
-#### values
+### values
 This type of options expect a value. They work similar to flags but instead of having a value of x they get assigned whatever value was passed when calling a target.
 ```
 my-target: foo|f=value bar=value
@@ -204,11 +205,11 @@ $ hund my-target --bar bazb --foo bazf
 foo=bazf bar=bazb
 ```
 
-## Dynamic Content
+## Variables
 
-### Variables
+###### *Value substitution of arguments and options*
 
-![variables](static/variable-example.png)
+![variables](static/variables.png)
 
 Variables are defined by specifying arguments or options in target declaration. They can be used in script with following syntax `@{{ <varname> }}`.
 
@@ -220,9 +221,11 @@ $ hund my-target --option bar foo
 argument=foo option=bar
 ```
 
-### Calls
+## Calls
 
-![calls](static/call-example.png)
+###### *Makes targets reusable*
+
+![calls](static/calls.png)
 
 You can use a script defined in another target by calling it with following syntax `@(( <targetname> ))`. Passing options and arguments works the same as when calling that target directly via `hund` invocation.
 
@@ -241,9 +244,11 @@ echo running my other target
 echo argument=foo option=bar
 ```
 
-### Embeds
+## Embeds
 
-![embeds](static/embeds-example.png)
+###### *Single-line calls*
+
+![embeds](static/embeds.png)
 
 This one is similar to `Calls`. You can call another target with following syntax `@[[ <targetname>
 ]]`. Called script is put as single line exactly in place of `@[[ <targetname> ]]`. All newlines are replaced by character (or string) defined with `@embedSep` global directive. By default, the seperator is set to ';'.
@@ -262,6 +267,10 @@ hello from linux
 ```
 
 ## Global directives
+
+
+![globals](static/globals.png)
+
 ### `@shell`
 `@shell` sets the execution shell used by hund to run target scripts. It can point only to binary `@shell(/bin/bash)` or define additional options used when starting shell `@shell(/bin/bash -z -x) 
 
